@@ -1,0 +1,18 @@
+services:
+  registration:
+    build:
+      context: ./RegistrationService
+    container_name: registration-service
+    ports:
+      - "3001:3001"
+    environment:
+      - MONGO_URI=${MONGO_URI}
+
+  login:
+    build:
+      context: ./LoginService
+    container_name: login-service
+    ports:
+      - "3002:3002"
+    environment:
+      - MONGO_URI=${MONGO_URI}
